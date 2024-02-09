@@ -6,7 +6,7 @@
 /*   By: eel-alao <eel-alao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:45:02 by eel-alao          #+#    #+#             */
-/*   Updated: 2024/02/09 22:48:48 by eel-alao         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:14:42 by eel-alao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int ft_printf(const char *format, ...)
     int lenght;
     va_list arg;
     
-    if (write(1, "", 1) < 0)
+    if (write(1, "", 0) < 0)
         return (-1);
     va_start(arg, format);
     i = 0;
