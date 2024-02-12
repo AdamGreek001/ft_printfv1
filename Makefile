@@ -1,9 +1,9 @@
 NAME = libftprintf.a
-SRCS = printstrings.c print_ndigits.c ft_printf.c print_hexadecimal.c
-ARC = ar rc
-RM = rm -f
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+ARC = ar rc
+RM = rm -f
+SRCS = printstrings.c print_ndigits.c ft_printf.c print_hexadecimal.c
 OBJS = $(SRCS:%.c=%.o)
 
 all : $(NAME)
