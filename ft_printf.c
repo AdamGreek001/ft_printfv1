@@ -6,35 +6,36 @@
 /*   By: eel-alao <eel-alao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:45:02 by eel-alao          #+#    #+#             */
-/*   Updated: 2024/02/09 23:14:42 by eel-alao         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:31:01 by eel-alao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 // #include <stdio.h>
 
-void print_it(va_list arg, char c, int *len)
+void print_it(va_list arg, char y, int *len)
 {
-    if (c == 'c')
+    if (y == 'c')
         *len += ft_putchar(va_arg(arg, int));
-    else if (c == 's')
+    else if (y == 's')
         *len += ft_printstr(va_arg(arg, char *));
-    else if (c == 'd' || c == 'i')
+    else if (y == 'd' || y == 'i')
         *len += print_nbr(va_arg(arg, int));
-    else if (c == 'u')
+    else if (y == 'u')
         *len += print_nbr_unsigned(va_arg(arg, unsigned int));
-    else if (c == 'p')
+    else if (y == 'p')
     {
         ft_printstr("0x");
         *len += 2;
         *len += print_address(va_arg(arg, void *));
     }
-    else if (c == 'x')
+    else if (y == 'x')
         *len += print_hexa(va_arg(arg, unsigned int), 0);
-    else if (c == 'X')
+        
+    else if (y == 'X')
         *len += print_hexa(va_arg(arg, unsigned int), 1);
     else 
-        *len += ft_putchar(c);
+        *len += ft_putchar(y);
 }
 
 int ft_printf(const char *format, ...)
@@ -52,7 +53,7 @@ int ft_printf(const char *format, ...)
     {
         if(format[i] == '%' && format[i + 1] != '\0')
             print_it(arg, format[++i], &lenght);
-        else
+        else if (format[i] != '%')
         {
             ft_putchar(format[i]);
             lenght++;
@@ -62,7 +63,28 @@ int ft_printf(const char *format, ...)
     va_end(arg);
     return(lenght);
 }
-// #include <libc.h>
+#include <libc.h>
+
+int main()
+{
+    //fclose(stdout);
+    //close(1);
+    // int a;
+    // int b;
+
+    // a = 0;
+    // b = 0;
+
+    // scanf("%d", &a);
+    // printf("\n");
+    // scanf("%i", &b);
+    // printf("%d\n", a);
+    // printf("%i\n", b);
+
+    //char c = r + '0';
+    //fprintf(stderr, "%d\n", r);
+}
+// // // #include <libc.h>
 // int main ()
 // {
 //     //char s[] = "bachir";
