@@ -6,24 +6,25 @@
 /*   By: eel-alao <eel-alao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:26:38 by eel-alao          #+#    #+#             */
-/*   Updated: 2024/02/12 19:01:44 by eel-alao         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:16:11 by eel-alao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// # include <unistd.h>
-int ft_putchar(char c)
+
+int	ft_putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
-int ft_printstr(const char *s)
+int	ft_printstr(const char *s)
 {
-    int i;
-    if (s == NULL)
-        return (ft_printstr("(null)"));
-    i = 0;
-    while (s[i])
-        ft_putchar(s[i++]);
-    return (i);
+	int	i;
+
+	if (s == NULL)
+		return (ft_printstr("(null)"));
+	i = 0;
+	while (s[i])
+		ft_putchar(s[i++]);
+	return (i);
 }
